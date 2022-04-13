@@ -1,0 +1,52 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+      - release/*
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+        # TODO replace with your build
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Build
+        run: |
+          pip install -e .
+
+  markdown-link-check:
+    # release branches are excluded to avoid unnecessary maintenance if external links break
+    if: ${{ !startsWith(github.ref_name, 'release/') }}
+    uses: ./.github/workflows/reusable-markdown-link-check.yml
+
+  misspell-check:
+    # release branches are excluded to avoid unnecessary maintenance if new misspellings are
+    # added to the misspell dictionary
+    if: ${{ !startsWith(github.ref_name, 'release/') }}
+    uses: ./.github/workflows/reusable-misspell-check.yml
+
+  required-status-check:
+    # markdown-link-check is not required so that pull requests will not be blocked if external
+    # links break
+    # similarly misspell-check is not required so that pull requests will not be blocked if new
+    # misspellings are added to the misspell dictionary
+    needs: build
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - if: needs.build.result != 'success'
+        run: exit 1
