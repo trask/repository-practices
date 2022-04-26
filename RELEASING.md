@@ -36,8 +36,7 @@ Run the [Release workflow](https://github.com/trask/repository-template/actions/
 
 * Press the "Run workflow" button, then select the release branch from the dropdown list,
   e.g. `release/v1.9.x`, and click the "Run workflow" button below that.
-* This workflow will publish the artifacts to maven central and will publish a GitHub release
-  with release notes based on the change log.
+* This workflow will publish the artifacts and publish a GitHub release with release notes based on the change log.
 * Review and merge the pull request that the release workflow creates against the release branch
   which adds the release date to the change log.
 
