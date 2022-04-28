@@ -20,7 +20,7 @@ jobs:
         # this will fail if there have been conflicting change log updates introduced in main
       - name: Create pull request against main
         env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           message="Merge change log updates from $GITHUB_REF_NAME"
           body="Merge change log updates from \`$GITHUB_REF_NAME\`."

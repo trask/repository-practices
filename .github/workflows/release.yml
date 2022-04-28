@@ -72,7 +72,7 @@ jobs:
 
       - name: Create pull request against the release branch
         env:
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           message="Add the release date for $VERSION to the change log"
           branch="add-release-date-for-$VERSION"
