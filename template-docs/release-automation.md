@@ -45,7 +45,7 @@ This is what we use in the OpenTelemetry Java repositories:
           git config user.email <your-bot-userid>+<your-bot-username>@users.noreply.github.com
 ```
 
-Furthermore:
+[Furthermore][]:
 
 > When you use the repository's `GITHUB_TOKEN` to perform tasks, events triggered by the
 `GITHUB_TOKEN` will not create a new workflow run. This prevents you from accidentally creating
@@ -54,6 +54,7 @@ recursive workflow runs.
 And so it is also helpful to create a [Personal Access Token][] for the bot and use
 `${{ secrets.BOT_TOKEN }}` instead of `${{ secrets.GITHUB_TOKEN }}` in your workflows.
 
+[Furthermore]: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
 [Personal Access Token]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
 ### Prepare release branch
