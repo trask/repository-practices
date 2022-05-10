@@ -17,10 +17,10 @@ if [[ $minor == 0 ]]; then
     # assuming this is the first release
     range=
   else
-    range=v$prior_major.$prior_minor.0..HEAD
+    range="v$prior_major.$prior_minor.0..HEAD"
   fi
 else
-  range=v$major.$((minor - 1)).0..HEAD
+  range="v$major.$((minor - 1)).0..HEAD"
 fi
 
 echo "## Version $version (Unreleased)"
