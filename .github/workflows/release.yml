@@ -37,7 +37,7 @@ jobs:
         run: |
           # conditional block not indented because of the heredoc
           if [[ ! -z $PRIOR_VERSION_FOR_PATCH_NOTES ]]; then
-          cat > release-notes.txt << EOF
+          cat > /tmp/release-notes.txt << EOF
           This is a patch release on the previous $PRIOR_VERSION_FOR_PATCH_NOTES release, fixing the issue(s) below.
 
           EOF
@@ -47,7 +47,7 @@ jobs:
           # while release notes render them as line breaks
           sed -n "0,/^## Version $VERSION/d;/^## Version /q;p" CHANGELOG.md \
             | perl -0pe 's/(?<!\n)\n *(?!\n)(?![-*] )(?![1-9]+\. )/ /g' \
-            >> release-notes.txt
+            >> /tmp/release-notes.txt
 
       - name: Create GitHub release
         env:
@@ -56,7 +56,7 @@ jobs:
           # TODO remove --discussions-category if discussions are not enabled in your repository
           gh release create --target $GITHUB_REF_NAME \
                             --title "Version $VERSION" \
-                            --notes-file release-notes.txt \
+                            --notes-file /tmp/release-notes.txt \
                             --discussion-category announcements \
                             v$VERSION
 
