@@ -1,3 +1,7 @@
+## Version 1.1.0 (Unreleased)
+
+- stuff
+
 ## Version 1.0.1 (2022-04-26)
 
 - something patchy
