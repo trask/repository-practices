@@ -2,5 +2,5 @@ import setuptools
 
 setuptools.setup(
    name='example',
-   version='1.1.0rc-dev'
+   version='1.2.0-dev'
 )
