@@ -1,3 +1,8 @@
+## Version 1.1.0rc (Unreleased)
+
+- cleanup
+  ([#18](https://github.com/trask/repository-template/pull/18))
+
 ## Version 1.0.1 (2022-04-26)
 
 - something patchy
