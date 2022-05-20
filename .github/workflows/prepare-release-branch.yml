@@ -12,7 +12,7 @@ jobs:
           version=$(.github/scripts/get-version.sh)
           # TODO update with your main branch versioning strategy
           version=${version//-dev/}
-          if ! grep --quiet "^## Version $version" CHANGELOG.md; then
+          if ! grep --quiet "^## Version $version " CHANGELOG.md; then
             echo the change log needs to be updated
             exit 1
           fi
