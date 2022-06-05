@@ -23,7 +23,7 @@ else
   range="v$major.$((minor - 1)).0..HEAD"
 fi
 
-echo "## Version $version (Unreleased)"
+echo "## Unreleased"
 echo
 
 # TODO update url below from https://github.com/trask/repository-template to your repository

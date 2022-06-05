@@ -26,7 +26,6 @@ approve and merge them.
 - [Release](#release)
 - [Update the change log with the release date](#update-the-change-log-with-the-release-date)
 - [Send a pull request to another repository](#send-a-pull-request-to-another-repository)
-- [Merge change log updates back to main](#merge-change-log-updates-back-to-main)
 
 See the [RELEASING.md](../RELEASING.md) that goes with the automation below.
 
@@ -161,15 +160,3 @@ origin repository when it pushes the branch.
                        --repo open-telemetry/opentelemetry-operator \
                        --base main
 ```
-
-#### Merge change log updates back to `main`
-
-This needs to be a separate workflow from the release workflow, because you will need to merge the
-pull request that the release workflow creates to add the release date to the change log first
-before running this workflow.
-
-Note that this workflow will fail if there have been conflicting change log updates introduced in
-`main`, in which case you will need to merge the change log updates manually and send your own pull
-request against `main`.
-
-See [merge-change-log-to-main.yml](../.github/workflows/merge-change-log-to-main.yml).
