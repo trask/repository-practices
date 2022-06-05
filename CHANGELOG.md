@@ -1,4 +1,4 @@
-## Unreleased
+## Version 1.4.3 (2022-06-05)
 
 - Example QQQQ
   ([#1](https://github.com/trask/repository-template/pull/1))
