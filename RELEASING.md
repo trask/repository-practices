@@ -35,7 +35,9 @@ TODO update link targets below from https://github.com/trask/repository-template
   * Press the "Run workflow" button, then select the release branch from the dropdown list,
     e.g. `release/v1.9.x`, and click the "Run workflow" button below that.
   * This workflow will publish the artifacts and publish a GitHub release with release notes based on the change log.
-  * Review and merge the pull request that it creates for updating the change log in main.
+  * Review and merge the pull request that it creates for updating the change log in main
+    (note that if this is not a patch release then the change log on main may already be up-to-date,
+    in which case no pull request will be created).
 
 ## Notes about "pre-releases"
 
