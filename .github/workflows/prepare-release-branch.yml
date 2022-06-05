@@ -96,8 +96,9 @@ jobs:
           fi
           # TODO update with your main branch versioning strategy
           next_version="${next_version}-dev"
-          echo "VERSION=$version" >> $GITHUB_ENV
+          version=${version//-dev/}
           echo "NEXT_VERSION=$next_version" >> $GITHUB_ENV
+          echo "VERSION=$version" >> $GITHUB_ENV
 
       - name: Update version
         run: .github/scripts/update-version.sh $NEXT_VERSION
