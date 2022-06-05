@@ -147,6 +147,14 @@ jobs:
           body="Copy log updates from \`$GITHUB_REF_NAME\`."
           branch="copy-change-log-updates-from-${GITHUB_REF_NAME//\//-}"
 
+          if [[ -z $PRIOR_VERSION_FOR_PATCH_NOTES ]]; then
+            # this was not a patch release, so there may not be any changes to main
+            if git diff-index --quiet HEAD; then
+              echo there are no updates needed to the change log on main, not creating pull request
+              exit 0 # success
+            fi
+          fi
+
           git commit -a -m "$message"
           git push origin HEAD:$branch
           gh pr create --title "$message" \
