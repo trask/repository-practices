@@ -1,5 +1,7 @@
 ## Unreleased
 
+## Version 1.0.0rc (2022-06-05)
+
 ## Version 0.9.0 (2022-06-05)
 
 - Example A
