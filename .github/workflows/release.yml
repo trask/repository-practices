@@ -147,20 +147,12 @@ jobs:
           body="Copy log updates from \`$GITHUB_REF_NAME\`."
           branch="copy-change-log-updates-from-${GITHUB_REF_NAME//\//-}"
 
-          echo debug1
           if [[ -z $PRIOR_VERSION_FOR_PATCH_NOTES ]]; then
-            echo debug2
-            # this was not a patch release, so there may not be any changes to main
-            if git diff-index --quiet HEAD; then
-              echo debug3
+            if git diff --quiet; then
               echo there are no updates needed to the change log on main, not creating pull request
               exit 0 # success
             fi
-            git status
-            echo ==========
-            git diff-index HEAD
           fi
-          echo debug4
 
           git commit -a -m "$message"
           git push origin HEAD:$branch
