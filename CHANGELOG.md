@@ -1,5 +1,7 @@
 ## Unreleased
 
+## Version  (Unreleased)
+
 - Example A
   ([#1](https://github.com/trask/repository-template/pull/1))
 - Example B
