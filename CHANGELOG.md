@@ -1,6 +1,6 @@
 ## Unreleased
 
-## Version 0.9.0 (Unreleased)
+## Version 0.9.0 ()
 
 - Example A
   ([#1](https://github.com/trask/repository-template/pull/1))
