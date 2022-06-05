@@ -150,6 +150,10 @@ jobs:
           echo debug1
           if [[ -z $PRIOR_VERSION_FOR_PATCH_NOTES ]]; then
             echo debug2
+            git status
+            echo ==========
+            git diff-index HEAD
+
             # this was not a patch release, so there may not be any changes to main
             if git diff-index --quiet HEAD; then
               echo debug3
