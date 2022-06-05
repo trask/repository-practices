@@ -3,8 +3,25 @@ on:
   workflow_dispatch:
 
 jobs:
+  prereqs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - run: |
+          if [[ $GITHUB_REF_NAME != main ]]; then
+            echo this workflow should only be run against main
+            exit 1
+          fi
+
+          if ! grep --quiet "^## Unreleased$" CHANGELOG.md; then
+            echo the change log is missing an \"Unreleased\" section
+            exit 1
+          fi
+
   create-pull-request-against-release-branch:
     runs-on: ubuntu-latest
+    needs: prereqs
     steps:
       - uses: actions/checkout@v3
 
@@ -35,7 +52,7 @@ jobs:
       - name: Update the change log with the approximate release date
         run: |
           date=$(date "+%Y-%m-%d")
-          sed -Ei "s/## Unreleased/## Version $VERSION ($date)/" CHANGELOG.md
+          sed -Ei "s/^## Unreleased$/## Version $VERSION ($date)/" CHANGELOG.md
 
       - name: Set git user
         run: .github/scripts/set-git-user.sh
