@@ -1,5 +1,10 @@
 ## Unreleased
 
+- Example M
+  ([#1](https://github.com/trask/repository-template/pull/1))
+- Example N
+  ([#1](https://github.com/trask/repository-template/pull/1))
+
 ## Version 1.1.0 (2022-06-05)
 
 - Example K
