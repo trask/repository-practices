@@ -127,7 +127,7 @@ jobs:
             cat /tmp/CHANGELOG_SECTION.md >> /tmp/CHANGELOG.md
 
             # copy the portion starting from the top-most release
-            sed -n "/^## Version /,$p" CHANGELOG.md >> /tmp/CHANGELOG.md
+            sed -n "/^## Version /,\$p" CHANGELOG.md >> /tmp/CHANGELOG.md
 
             # update the real CHANGELOG.md
             cp /tmp/CHANGELOG.md CHANGELOG.md
