@@ -88,6 +88,8 @@ jobs:
           ref: main
 
       - name: Copy change log updates to main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if [[ -z $PRIOR_VERSION_FOR_PATCH_NOTES ]]; then
             # this was not a patch release, so the version exists already in the CHANGELOG.md
