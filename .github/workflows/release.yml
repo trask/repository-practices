@@ -116,20 +116,18 @@ jobs:
           else
             # this was a patch release, so the version does not exist already in the CHANGELOG.md
 
-            # update the release date
-            date=$(gh release view v$VERSION --json publishedAt --jq .publishedAt | sed 's/T.*//')
-            sed -Ei "s/## Version $VERSION .*/## Version $VERSION ($date)/" \
-              /tmp/CHANGELOG_SECTION.md
-
             # copy the portion above the top-most release, not including the heading
             sed -n "0,/^## Version /{ /^## Version /!p }" CHANGELOG.md > /tmp/CHANGELOG.md
+
+            # add the heading
+            date=$(gh release view v$VERSION --json publishedAt --jq .publishedAt | sed 's/T.*//')
+            echo "## Version $VERSION ($date)" >> /tmp/CHANGELOG_SECTION.md
 
             # copy the release notes
             cat /tmp/CHANGELOG_SECTION.md >> /tmp/CHANGELOG.md
 
             # copy the portion starting from the top-most release
-            sed -n "0,/^## Version /d;0,/^## Version /{/^## Version/!d};p" CHANGELOG.md \
-              >> /tmp/CHANGELOG.md
+            sed -n "/^## Version /,$p" CHANGELOG.md >> /tmp/CHANGELOG.md
 
             # update the real CHANGELOG.md
             cp /tmp/CHANGELOG.md CHANGELOG.md
