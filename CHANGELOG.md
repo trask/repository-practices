@@ -5,6 +5,13 @@
 - Example T
   ([#1](https://github.com/trask/repository-template/pull/1))
 
+## Version 1.4.4 (2022-06-06)
+
+- Example QQQQQ
+  ([#1](https://github.com/trask/repository-template/pull/1))
+- Example RRRRR
+  ([#1](https://github.com/trask/repository-template/pull/1))
+
 ## Version 1.4.3 (2022-06-05)
 
 - Example QQQQ
