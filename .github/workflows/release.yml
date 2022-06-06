@@ -121,7 +121,7 @@ jobs:
 
             # add the heading
             date=$(gh release view v$VERSION --json publishedAt --jq .publishedAt | sed 's/T.*//')
-            echo "## Version $VERSION ($date)" >> /tmp/CHANGELOG_SECTION.md
+            echo "## Version $VERSION ($date)" >> /tmp/CHANGELOG.md
 
             # copy the release notes
             cat /tmp/CHANGELOG_SECTION.md >> /tmp/CHANGELOG.md
