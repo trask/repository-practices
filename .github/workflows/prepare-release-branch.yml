@@ -27,7 +27,7 @@ jobs:
             version=$(.github/scripts/get-version.sh)
             version=${version//-dev/}
             if [[ $PRERELEASE_VERSION != ${version}-* ]]; then
-              echo $PRERELEASE_VERSION is not a prerelease for the version on main ($version)
+              echo "$PRERELEASE_VERSION is not a prerelease for the version on main ($version)"
               exit 1
             fi
           fi
