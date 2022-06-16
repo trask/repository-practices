@@ -10,8 +10,8 @@ TODO update link targets below from https://github.com/trask/repository-template
     log if you do not add change log entries in their respective PRs.
 * Run the [Prepare release branch workflow](https://github.com/trask/repository-template/actions/workflows/prepare-release-branch.yml).
   * Press the "Run workflow" button, and leave the default branch `main` selected.
-    * Optionally override the version number for the release
-      (by default it will just remove the "-dev" suffix from the version on `main`).
+    * If making a pre-release (e.g. release candidate), enter the pre-release version number, e.g. `1.9.0-rc.2`.
+      (otherwise the workflow will pick up the version from `main` and just remove the `-dev` suffix).
   * Review and merge the two pull requests that it creates
     (one is targeted to the release branch and one is targeted to `main`).
 
@@ -42,11 +42,8 @@ TODO update link targets below from https://github.com/trask/repository-template
 
 ## Notes about "pre-releases"
 
-* Pre-release versions (e.g. `1.9.0-rc.1`) are supported, and will cause a "short-term" release branch to be created
-  based on the full version name (e.g. `release/v1.9.0-rc.1` instead of a "long-term" release branch name like
+* Pre-release versions (e.g. `1.9.0-rc.2`) are supported, and will cause a "short-term" release branch to be created
+  based on the full version name (e.g. `release/v1.9.0-rc.2` instead of a "long-term" release branch name like
   `release/v1.9.x`).
 * Patch releases are not supported on short-term release branches.
 * The version in `main` in this case will be bumped to the release version (e.g. `1.9.0-dev`).
-* To make a second pre-release version, manually update the version in `main`
-  (e.g. update it from `1.9.0-dev` to `1.9.0-rc.2-dev`)
-  before running the prepare release branch workflow for that release.
