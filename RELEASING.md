@@ -10,6 +10,8 @@ TODO update link targets below from https://github.com/trask/repository-template
     log if you do not add change log entries in their respective PRs.
 * Run the [Prepare release branch workflow](https://github.com/trask/repository-template/actions/workflows/prepare-release-branch.yml).
   * Press the "Run workflow" button, and leave the default branch `main` selected.
+    * Optionally override the version number for the release
+      (by default it will just remove the "-dev" suffix from the version on `main`).
   * Review and merge the two pull requests that it creates
     (one is targeted to the release branch and one is targeted to `main`).
 
