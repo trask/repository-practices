@@ -46,4 +46,5 @@ TODO update link targets below from https://github.com/trask/repository-template
   based on the full version name (e.g. `release/v1.9.0-rc.2` instead of a "long-term" release branch name like
   `release/v1.9.x`).
 * Patch releases are not supported on short-term release branches.
-* The version in `main` in this case will be bumped to the release version (e.g. `1.9.0-dev`).
+* The version in `main` in this case will remain the same (e.g. `1.9.0-dev`), since the next release version
+  (that is not a prereleaes) is still `1.9.0`.

@@ -12,7 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - run: |
+      - name: Verify prerequisites
+        env:
+          PRERELEASE_VERSION: ${{ github.event.inputs.prerelease_version }}
+        run: |
           if [[ $GITHUB_REF_NAME != main ]]; then
             echo this workflow should only be run against main
             exit 1
