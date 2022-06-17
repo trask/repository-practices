@@ -1,4 +1,4 @@
-## Unreleased
+## Version 1.5.0 (2022-06-17)
 
 ## Version 1.5.0-rc (2022-06-16)
 
