@@ -49,6 +49,8 @@ jobs:
         # back to the release branch
       - uses: actions/checkout@v3
 
+      # TODO publish if applicable (e.g. to PyPI)
+
       - name: Generate release notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
