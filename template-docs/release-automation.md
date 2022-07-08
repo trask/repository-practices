@@ -34,14 +34,11 @@ See the [RELEASING.md](../RELEASING.md) that goes with the automation below.
 Since you can't push directly to `main` or to release branches from workflows (due to branch protections),
 the next best thing is to generate a pull request from the workflow and use a bot which has signed the CLA as commit author.
 
-This is what we use in the OpenTelemetry Java repositories:
-
 ```yaml
       - name: Set git user
         run: |
-          # TODO update with your bot account info
-          git config user.name <your-bot-username>
-          git config user.email <your-bot-userid>+<your-bot-username>@users.noreply.github.com
+          git config user.name opentelemetrybot
+          git config user.email 107717825+opentelemetrybot@users.noreply.github.com
 ```
 
 [Furthermore][]:
