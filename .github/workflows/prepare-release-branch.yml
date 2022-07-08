@@ -75,8 +75,8 @@ jobs:
           date=$(date "+%Y-%m-%d")
           sed -Ei "s/^## Unreleased$/## Version $VERSION ($date)/" CHANGELOG.md
 
-      - name: Set git user
-        run: .github/scripts/set-git-user.sh
+      - name: Set git user to bot account
+        run: .github/scripts/set-git-user-to-bot-account.sh
 
       - name: Create pull request against the release branch
         env:
@@ -135,8 +135,8 @@ jobs:
           date=$(date "+%Y-%m-%d")
           sed -Ei "s/^## Unreleased$/## Unreleased\n\n## Version $VERSION ($date)/" CHANGELOG.md
 
-      - name: Set git user
-        run: .github/scripts/set-git-user.sh
+      - name: Set git user to bot account
+        run: .github/scripts/set-git-user-to-bot-account.sh
 
       - name: Create pull request against main
         env:

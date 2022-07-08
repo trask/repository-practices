@@ -135,8 +135,8 @@ jobs:
             cp /tmp/CHANGELOG.md CHANGELOG.md
           fi
 
-      - name: Set git user
-        run: .github/scripts/set-git-user.sh
+      - name: Set git user to bot account
+        run: .github/scripts/set-git-user-to-bot-account.sh
 
       - name: Create pull request against main
         env:

@@ -35,7 +35,7 @@ Since you can't push directly to `main` or to release branches from workflows (d
 the next best thing is to generate a pull request from the workflow and use a bot which has signed the CLA as commit author.
 
 ```yaml
-      - name: Set git user
+      - name: Set git user to bot account
         run: |
           git config user.name opentelemetrybot
           git config user.email 107717825+opentelemetrybot@users.noreply.github.com
@@ -132,7 +132,7 @@ origin repository when it pushes the branch.
         run: |
           echo $VERSION > autoinstrumentation/java/version.txt
 
-      - name: Set git user
+      - name: Set git user to bot account
         run: |
           # TODO update with your bot account info
           git config user.name <your-bot-username>
