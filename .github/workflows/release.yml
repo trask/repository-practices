@@ -135,8 +135,8 @@ jobs:
             cp /tmp/CHANGELOG.md CHANGELOG.md
           fi
 
-      - name: Set git user to bot account
-        run: .github/scripts/set-git-user-to-bot-account.sh
+      - name: Use CLA approved github bot
+        run: .github/scripts/use-cla-approved-github-bot.sh
 
       - name: Create pull request against main
         env:
