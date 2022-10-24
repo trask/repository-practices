@@ -3,6 +3,21 @@ on:
   workflow_dispatch:
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+        # TODO replace with your build
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Build
+        run: |
+          pip install -e .
+
   release:
     runs-on: ubuntu-latest
     steps:
@@ -145,7 +160,7 @@ jobs:
         run: |
           message="Copy change log updates from $GITHUB_REF_NAME"
           body="Copy log updates from \`$GITHUB_REF_NAME\`."
-          branch="copy-change-log-updates-from-${GITHUB_REF_NAME//\//-}"
+          branch="opentelemetrybot/copy-change-log-updates-from-${GITHUB_REF_NAME//\//-}"
 
           if [[ -z $PRIOR_VERSION_WHEN_PATCH ]]; then
             if git diff --quiet; then
