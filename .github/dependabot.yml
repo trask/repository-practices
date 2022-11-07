@@ -4,3 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+
+    # TODO replace with relevant package ecosystem for your repository
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
