@@ -44,7 +44,8 @@ jobs:
     # links break
     # similarly misspell-check is not required so that pull requests will not be blocked if new
     # misspellings are added to the misspell dictionary
-    needs: build
+    needs:
+      - build
     runs-on: ubuntu-latest
     if: always()
     steps:

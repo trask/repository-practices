@@ -104,7 +104,7 @@ Here's an example of doing this with the above `misspell-check` workflow:
 
       - name: Install misspell
         run: |
-          curl -L -o ./install-misspell.sh https://git.io/misspell
+          curl -L -o install-misspell.sh https://git.io/misspell
           sh ./install-misspell.sh
 
       - name: Run misspell (diff)

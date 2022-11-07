@@ -27,5 +27,9 @@ echo "## Unreleased"
 echo
 
 # TODO update url below from https://github.com/trask/repository-template to your repository
-git log --reverse --pretty=format:"- %s" $range \
+git log --reverse \
+        --author='^(?!dependabot\[bot\] )' \
+        --perl-regexp \
+        --pretty=format:"- %s" \
+        $range \
   | sed -E 's,\(#([0-9]+)\),\n  ([#\1](https://github.com/trask/repository-template/pull/\1)),'
