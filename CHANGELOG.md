@@ -1,3 +1,5 @@
+## Unreleased
+
 ## Version 1.6.0 (2022-11-07)
 
 - Example A
