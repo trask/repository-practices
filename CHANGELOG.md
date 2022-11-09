@@ -1,4 +1,4 @@
-## Unreleased
+## Version 1.6.2 (2022-11-09)
 
 ## Version 1.6.1 (2022-11-07)
 
