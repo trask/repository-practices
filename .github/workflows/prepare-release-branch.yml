@@ -149,9 +149,8 @@ jobs:
           body="Update version to \`$NEXT_VERSION\`."
           branch="opentelemetrybot/update-version-to-${NEXT_VERSION}"
 
+          git checkout -b $branch
           git commit -a -m "$message"
-          git push origin HEAD:$branch
+          git push --set-upstream origin $branch
           gh pr create --title "$message" \
-                       --body "$body" \
-                       --head $branch \
-                       --base main
+                       --body "$body"
