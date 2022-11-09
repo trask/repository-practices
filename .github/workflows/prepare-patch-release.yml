@@ -50,9 +50,9 @@ jobs:
           message="Prepare release $VERSION"
           branch="opentelemetrybot/prepare-release-${VERSION}"
 
+          git checkout -b $branch
           git commit -a -m "$message"
-          git push origin HEAD:$branch
+          git push --set-upstream origin $branch
           gh pr create --title "[$GITHUB_REF_NAME] $message" \
                        --body "$message." \
-                       --head $branch \
                        --base $GITHUB_REF_NAME

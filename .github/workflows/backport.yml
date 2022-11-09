@@ -35,9 +35,9 @@ jobs:
 
           branch="opentelemetrybot/backport-${NUMBER}-to-${GITHUB_REF_NAME//\//-}"
 
+          git checkout -b $branch
           git cherry-pick $commit
-          git push origin HEAD:$branch
+          git push --set-upstream origin $branch
           gh pr create --title "[$GITHUB_REF_NAME] $title" \
                        --body "Clean cherry-pick of #$NUMBER to the \`$GITHUB_REF_NAME\` branch." \
-                       --head $branch \
                        --base $GITHUB_REF_NAME
