@@ -28,6 +28,11 @@ jobs:
         run: |
           pip install -e .
 
+  shell-check:
+    # release branches are excluded to avoid unnecessary maintenance if new shell checks are added
+    if: ${{ !startsWith(github.ref_name, 'release/') }}
+    uses: ./.github/workflows/reusable-shell-check.yml
+
   markdown-link-check:
     # release branches are excluded to avoid unnecessary maintenance if external links break
     if: ${{ !startsWith(github.ref_name, 'release/') }}
@@ -35,7 +40,6 @@ jobs:
 
   misspell-check:
     # release branches are excluded to avoid unnecessary maintenance if new misspellings are added
-    # to the misspell dictionary
     if: ${{ !startsWith(github.ref_name, 'release/') }}
     uses: ./.github/workflows/reusable-misspell-check.yml
 

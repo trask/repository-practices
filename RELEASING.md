@@ -4,8 +4,8 @@ TODO update link targets below from https://github.com/trask/repository-template
 
 ## Preparing a new major or minor release
 
-* Check that [dependabot has run](https://github.com/open-telemetry/opentelemetry-java-contrib/network/updates)
-  sometime in the past day.
+* Check that [dependabot has run](https://github.com/trask/repository-template/network/updates)
+  sometime in the past day (this link is only accessible if you have write access to the repository).
 * Merge a pull request to `main` updating the `CHANGELOG.md`.
   * The heading for the unreleased entries should be `## Unreleased`.
   * You can use `.github/scripts/draft-change-log-entries.sh` as a starting point for writing the change

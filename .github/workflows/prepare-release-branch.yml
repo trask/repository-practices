@@ -82,7 +82,7 @@ jobs:
       - name: Create pull request against the release branch
         env:
           # not using secrets.GITHUB_TOKEN since pull requests from that token do not run workflows
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           message="Prepare release $VERSION"
           branch="opentelemetrybot/prepare-release-${VERSION}"
@@ -143,7 +143,7 @@ jobs:
       - name: Create pull request against main
         env:
           # not using secrets.GITHUB_TOKEN since pull requests from that token do not run workflows
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           message="Update version to $NEXT_VERSION"
           body="Update version to \`$NEXT_VERSION\`."
