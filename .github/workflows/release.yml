@@ -87,7 +87,7 @@ jobs:
 
       - name: Create GitHub release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # TODO check that discussion category "announcements" exists
           #      or remove --discussions-category if discussions are not enabled in your repository
@@ -120,7 +120,7 @@ jobs:
 
       - name: Copy change log updates to main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           release_date=$(gh release view v$VERSION --json publishedAt --jq .publishedAt | sed 's/T.*//')
           RELEASE_DATE=$release_date .github/scripts/merge-change-log-after-release.sh
@@ -131,7 +131,7 @@ jobs:
       - name: Create pull request against main
         env:
           # not using secrets.GITHUB_TOKEN since pull requests from that token do not run workflows
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           if git diff --quiet; then
             if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.0 ]]; then
