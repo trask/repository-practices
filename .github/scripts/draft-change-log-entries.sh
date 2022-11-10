@@ -31,5 +31,5 @@ git log --reverse \
         --author='^(?!dependabot\[bot\] )' \
         --perl-regexp \
         --pretty=format:"- %s" \
-        $range \
+        "$range" \
   | sed -E 's,\(#([0-9]+)\),\n  ([#\1](https://github.com/trask/repository-template/pull/\1)),'

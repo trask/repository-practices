@@ -42,6 +42,10 @@ If you run into sites sending back `403` to the link checker bot, you can add `4
 }
 ```
 
+### Automated linting for shell scripts
+
+TODO
+
 ### Automated check for misspellings
 
 https://github.com/client9/misspell only checks against known misspellings,

@@ -28,10 +28,10 @@ jobs:
         run: |
           pip install -e .
 
-  shell-check:
+  shell-script-check:
     # release branches are excluded to avoid unnecessary maintenance if new shell checks are added
     if: ${{ !startsWith(github.ref_name, 'release/') }}
-    uses: ./.github/workflows/reusable-shell-check.yml
+    uses: ./.github/workflows/reusable-shell-script-check.yml
 
   markdown-link-check:
     # release branches are excluded to avoid unnecessary maintenance if external links break
@@ -44,10 +44,12 @@ jobs:
     uses: ./.github/workflows/reusable-misspell-check.yml
 
   required-status-check:
+    # shell-script-check is not required so that pull requests will not be blocked if new shell
+    #   checks are added
     # markdown-link-check is not required so that pull requests will not be blocked if external
-    # links break
-    # similarly misspell-check is not required so that pull requests will not be blocked if new
-    # misspellings are added to the misspell dictionary
+    #   links break
+    # misspell-check is not required so that pull requests will not be blocked if new misspellings
+    #   are added to the misspell dictionary
     needs:
       - build
     runs-on: ubuntu-latest
