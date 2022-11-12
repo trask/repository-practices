@@ -124,13 +124,13 @@ origin repository when it pushes the branch.
           # synchronizing the fork is fast, and avoids the need to fetch the full upstream repo
           # (fetching the upstream repo with "--depth 1" would lead to "shallow update not allowed"
           #  error when pushing back to the origin repo)
-          gh repo sync opentelemetry-java-bot/opentelemetry-operator \
+          gh repo sync opentelemetrybot/opentelemetry-operator \
               --source open-telemetry/opentelemetry-operator \
               --force
 
       - uses: actions/checkout@v3
         with:
-          repository: opentelemetry-java-bot/opentelemetry-operator
+          repository: opentelemetrybot/opentelemetry-operator
           # this is the personal access token used for "git push" below
           token: ${{ secrets.BOT_TOKEN }}
 
