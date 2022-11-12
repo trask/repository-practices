@@ -52,8 +52,8 @@ jobs:
     #   are added to the misspell dictionary
     needs:
       - build
-    runs-on: ubuntu-latest
     if: always()
+    runs-on: ubuntu-latest
     steps:
       - if: needs.build.result != 'success'
         run: exit 1
