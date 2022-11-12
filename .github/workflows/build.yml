@@ -30,17 +30,17 @@ jobs:
 
   shell-script-check:
     # release branches are excluded to avoid unnecessary maintenance if new shell checks are added
-    if: ${{ !startsWith(github.ref_name, 'release/') }}
+    if: !startsWith(github.ref_name, 'release/')
     uses: ./.github/workflows/reusable-shell-script-check.yml
 
   markdown-link-check:
     # release branches are excluded to avoid unnecessary maintenance if external links break
-    if: ${{ !startsWith(github.ref_name, 'release/') }}
+    if: !startsWith(github.ref_name, 'release/')
     uses: ./.github/workflows/reusable-markdown-link-check.yml
 
   misspell-check:
     # release branches are excluded to avoid unnecessary maintenance if new misspellings are added
-    if: ${{ !startsWith(github.ref_name, 'release/') }}
+    if: !startsWith(github.ref_name, 'release/')
     uses: ./.github/workflows/reusable-misspell-check.yml
 
   required-status-check:
