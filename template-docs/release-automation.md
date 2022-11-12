@@ -116,17 +116,23 @@ origin repository when it pushes the branch.
 [Personal Access Token]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
 ```yaml
+      - name: Sync opentelemetry-operator fork
+        env:
+          # this is the personal access token used for "gh repo sync" below
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+        run: |
+          # synchronizing the fork is fast, and avoids the need to fetch the full upstream repo
+          # (fetching the upstream repo with "--depth 1" would lead to "shallow update not allowed"
+          #  error when pushing back to the origin repo)
+          gh repo sync opentelemetry-java-bot/opentelemetry-operator \
+              --source open-telemetry/opentelemetry-operator \
+              --force
+
       - uses: actions/checkout@v3
         with:
           repository: opentelemetry-java-bot/opentelemetry-operator
-          # this is the PAT used for "git push" below
+          # this is the personal access token used for "git push" below
           token: ${{ secrets.BOT_TOKEN }}
-
-      - name: Initialize pull request branch
-        run: |
-          git remote add upstream https://github.com/open-telemetry/opentelemetry-operator.git
-          git fetch upstream
-          git checkout -b update-opentelemetry-javaagent-to-$VERSION upstream/main
 
       - name: Update version
         run: |
@@ -134,24 +140,25 @@ origin repository when it pushes the branch.
 
       - name: Use CLA approved github bot
         run: |
-          # TODO update with your bot account info
-          git config user.name <your-bot-username>
-          git config user.email <your-bot-userid>+<your-bot-username>@users.noreply.github.com
+          git config user.name opentelemetrybot
+          git config user.email 107717825+opentelemetrybot@users.noreply.github.com
 
       - name: Create pull request against opentelemetry-operator
         env:
-          # this is the PAT used for "gh pr create" below
-          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          # this is the personal access token used for "gh pr create" below
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: |
           message="Update the javaagent version to $VERSION"
           body="Update the javaagent version to \`$VERSION\`."
+          branch="update-opentelemetry-javaagent-to-$VERSION"
 
           # gh pr create doesn't have a way to explicitly specify different head and base
           # repositories currently, but it will implicitly pick up the head from a different
           # repository if you set up a tracking branch
 
+          git checkout -b $branch
           git commit -a -m "$message"
-          git push --set-upstream origin update-opentelemetry-javaagent-to-$VERSION
+          git push --set-upstream origin $branch
           gh pr create --title "$message" \
                        --body "$body" \
                        --repo open-telemetry/opentelemetry-operator \
