@@ -1,4 +1,4 @@
-# GitHub Actions misc
+# General GitHub Actions practices
 
 ## Table of Contents
 

@@ -1,4 +1,4 @@
-# Common linting
+# Linting
 
 ## Table of Contents
 
