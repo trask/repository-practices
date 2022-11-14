@@ -3,15 +3,15 @@
 The goal of this repository is to document common practices used across OpenTelemetry SIGs, in order
 to help SIGs discover practices which are working well for other SIGs, and could help them as well.
 
-These are specifically not "best practices", because OpenTelemetry values the independence of
-individual SIGs to define what works "best" for their respective contributor communities.
+These are specifically NOT "best practices", because OpenTelemetry values the independence of
+individual SIGs to define what is "best" for their respective contributor communities.
 
-* [Linting](docs/build-checks.md)
-* [Change log management](TODO)
-* [Issue management](TODO)
-* [Pull request management](TODO)
+* [General automation](docs/general-automation.md)
 * [Release automation](docs/release-automation.md)
-* [General GitHub Actions practices](docs/common-practices.md)
-* [Configuring component owners for contrib repositories](docs/component-owners.md)
+* [GitHub Actions misc](docs/github-actions-misc.md)
+* [Common linting](docs/common-linting.md)
+* [Security](docs/security.md)
+* [Issue management](docs/issue-management.md)
+* [Pull request management](docs/pull-request-management.md)
 * [Repository settings](docs/repository-settings.md)
-* [Keeping dependencies up-to-date](TODO)
+* [Contrib repository component owners](docs/component-owners.md)

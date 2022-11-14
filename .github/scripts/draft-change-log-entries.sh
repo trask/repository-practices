@@ -26,10 +26,10 @@ fi
 echo "## Unreleased"
 echo
 
-# TODO update url below from https://github.com/trask/repository-template to your repository
+# TODO update url below from https://github.com/trask/common-practices to your repository
 git log --reverse \
         --perl-regexp \
         --author='^(?!dependabot\[bot\] )' \
         --pretty=format:"- %s" \
         "$range" \
-  | sed -E 's,\(#([0-9]+)\)$,\n  ([#\1](https://github.com/trask/repository-template/pull/\1)),'
+  | sed -E 's,\(#([0-9]+)\)$,\n  ([#\1](https://github.com/trask/common-practices/pull/\1)),'

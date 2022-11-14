@@ -6,7 +6,7 @@
   ],
   "ignorePatterns" : [
     {
-      "pattern" : "^https://github\\.com/trask/repository-template/network/updates$"
+      "pattern" : "^https://github\\.com/trask/common-practices/network/updates$"
     }
   ]
 }

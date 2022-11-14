@@ -1,22 +1,22 @@
-# Common build checks
+# Common linting
 
 ## Table of Contents
 
-- [Automated check for markdown links](#automated-check-for-markdown-links)
-- [Automated check for misspellings](#automated-check-for-misspellings)
-- [Markdown lint](#markdown-lint)
+- [Check for broken markdown links](#check-for-broken-markdown-links)
+- [Markdown linting](#markdown-linting)
+- [Shell script linting](#shell-script-linting)
+- [Check for misspellings](#check-for-misspellings)
 - [Running checks against changed files only](#running-checks-against-changed-files-only)
 
-### Automated check for markdown links
+## Check for broken markdown links
 
 https://github.com/tcort/markdown-link-check checks markdown files for valid links and anchors.
 
-It is recommended to not make this a required check for pull requests to avoid blocking pull
+It is recommended to NOT make this a required check for pull requests to avoid blocking pull
 requests if external links break.
 
-See [build.yml][], [reusable-markdown-link-check.yml][] and [markdown-link-check-with-retry.sh][].
+See [reusable-markdown-link-check.yml][] and [markdown-link-check-with-retry.sh][].
 
-[build.yml]: ../.github/workflows/build.yml
 [reusable-markdown-link-check.yml]: ../.github/workflows/reusable-markdown-link-check.yml
 [markdown-link-check-with-retry.sh]: ../.github/scripts/markdown-link-check-with-retry.sh
 
@@ -42,17 +42,27 @@ If you run into sites sending back `403` to the link checker bot, you can add `4
 }
 ```
 
-### Automated linting for shell scripts
+## Markdown linting
+
+Specification repo uses https://github.com/DavidAnson/markdownlint.
+
+Go, JavaScript repos use https://github.com/avto-dev/markdown-lint github action.
+
+C++ uses markdownlint-cli (which is same that is used by avto-dev/markdown-lint github action).
 
 TODO
 
-### Automated check for misspellings
+## Shell script linting
+
+See [reusable-shell-script-check.yml][].
+
+## Check for misspellings
 
 https://github.com/client9/misspell only checks against known misspellings,
 so while it's not a comprehensive spell checker, it doesn't produce false positives,
 and so doesn't get in your way.
 
-It is recommended to not make this a required check for pull requests to avoid blocking pull
+It is recommended to NOT make this a required check for pull requests to avoid blocking pull
 requests if new misspellings are added to the misspell dictionary.
 
 See [build.yml][] and [misspell-check.yml][].
@@ -71,17 +81,7 @@ If you need to exclude some files for any reason:
 
 ```
 
-### Markdown lint
-
-Specification repo uses https://github.com/DavidAnson/markdownlint.
-
-Go, JavaScript repos use https://github.com/avto-dev/markdown-lint github action.
-
-C++ uses markdownlint-cli (which is same that is used by avto-dev/markdown-lint github action).
-
-TODO
-
-### Running checks against changed files only
+## Running checks against changed files only
 
 If for some reason some check is running slow, or generates failures on pull requests unrelated to changed files,
 an option is to run it only against changed files on pull requests.

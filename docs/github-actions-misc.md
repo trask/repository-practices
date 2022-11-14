@@ -1,4 +1,4 @@
-# Common practices
+# GitHub Actions misc
 
 ## Table of Contents
 
@@ -6,7 +6,6 @@
 - [Configure "cancel-in-progress" on pull request workflows](#configure-cancel-in-progress-on-pull-request-workflows)
 - [Prefer `gh` cli over third-party GitHub actions for simple tasks](#prefer-gh-cli-over-third-party-github-actions-for-simple-tasks)
 - [Use GitHub action cache to make builds faster and less flaky](#use-github-action-cache-to-make-builds-faster-and-less-flaky)
-- [Run CodeQL daily](#run-codeql-daily)
 - [Workflow file naming conventions](#workflow-file-naming-conventions)
 - [Workflow YAML style guide](#workflow-yaml-style-guide)
 
@@ -69,10 +68,6 @@ compared to third-party GitHub actions.
 ## Use GitHub action cache to make builds faster and less flaky
 
 This is very build tool specific so no specific tips here on how to implement.
-
-## Run CodeQL daily
-
-See [codeql-daily.yml](../.github/workflows/codeql-daily.yml).
 
 ## Workflow file naming conventions
 
