@@ -23,7 +23,7 @@ This avoids needing to modify branch protection required status checks as indivi
     runs-on: ubuntu-latest
     if: always()
     steps:
-      - if: |
+      - if: >
           needs.aaa.result != 'success' ||
           needs.bbb.result != 'success' ||
           needs.ccc.result != 'success'
