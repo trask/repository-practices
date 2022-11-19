@@ -11,10 +11,11 @@
 
 Automation is a bit tricky in because of these branch protection rules which are required on
 OpenTelemetry repositories:
-  * Require a pull request before merging
-  * Require approvals
-  * Require review from Code Owners
-  * Require status checks to pass before merging
+
+* Require a pull request before merging
+* Require approvals
+* Require review from Code Owners
+* Require status checks to pass before merging
 
 So, instead of automation being able to push a commit directly to `main` or `release/*`, it must
 instead push the commit to a staging branch, and create a pull request to `main` or `release/*`,
@@ -66,8 +67,6 @@ as part of the release workflow.
 Note that the [Personal Access Token][] used will need `workflow` (Update GitHub Action workflows)
 permission since if workflows have been updated upstream it will be updating the workflows of the
 origin repository when it pushes the branch.
-
-[Personal Access Token]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
 ```yaml
       - name: Sync opentelemetry-operator fork

@@ -10,7 +10,7 @@
 
 ## Check for broken markdown links
 
-https://github.com/tcort/markdown-link-check checks markdown files for valid links and anchors.
+<https://github.com/tcort/markdown-link-check> checks markdown files for valid links and anchors.
 
 It is recommended to NOT make this a required check for pull requests to avoid blocking pull
 requests if external links break.
@@ -44,31 +44,27 @@ If you run into sites sending back `403` to the link checker bot, you can add `4
 
 ## Markdown linting
 
-Specification repo uses https://github.com/DavidAnson/markdownlint.
+<https://github.com/igorshubovych/markdownlint-cli> is a style checker and lint tool for markdown
+files.
 
-Go, JavaScript repos use https://github.com/avto-dev/markdown-lint github action.
-
-C++ uses markdownlint-cli (which is same that is used by avto-dev/markdown-lint github action).
-
-TODO
+See [reusable-markdown-lint.yml](../.github/workflows/reusable-markdown-lint.yml).
 
 ## Shell script linting
 
-See [reusable-shell-script-check.yml][].
+<https://github.com/koalaman/shellcheck> gives warnings and suggestions for bash/sh shell scripts.
+
+See [reusable-shell-script-check.yml](../.github/workflows/reusable-shell-script-check.yml).
 
 ## Check for misspellings
 
-https://github.com/client9/misspell only checks against known misspellings,
+<https://github.com/client9/misspell> only checks against known misspellings,
 so while it's not a comprehensive spell checker, it doesn't produce false positives,
 and so doesn't get in your way.
 
 It is recommended to NOT make this a required check for pull requests to avoid blocking pull
 requests if new misspellings are added to the misspell dictionary.
 
-See [build.yml][] and [misspell-check.yml][].
-
-[build.yml]: ../.github/workflows/build.yml
-[reusable-misspell-check.yml]: ../.github/workflows/reusable-misspell-check.yml
+See [build.yml](../.github/workflows/build.yml) and [misspell-check.yml](../.github/workflows/reusable-misspell-check.yml).
 
 If you need to exclude some files for any reason:
 

@@ -1,4 +1,4 @@
-## Configuring component owners for contrib repositories
+# Configuring component owners for contrib repositories
 
 Using CODEOWNERS to assign reviewers requires all reviewers to have write access to the repository,
 which brings along a lot of [additional permissions][].
@@ -8,7 +8,7 @@ which brings along a lot of [additional permissions][].
 The [component owners action](https://github.com/dyladan/component-owners#component-owners)
 works similarly, but does not require granting write access.
 
-### `.github/workflows/assign-reviewers.yml`
+## `.github/workflows/assign-reviewers.yml`
 
 ```yaml
 # assigns reviewers to pull requests in a similar way as CODEOWNERS, but doesn't require
@@ -28,7 +28,7 @@ jobs:
       - uses: dyladan/component-owners@main
 ```
 
-### `.github/component_owners.yaml`
+## `.github/component_owners.yaml`
 
 In the [opentelemetry-java-contrib](https://github.com/open-telemetry/opentelemetry-java-contrib)
 repository we have created labels for each component, and have given all component owners triager
@@ -49,7 +49,7 @@ components:
     - owner2
 ```
 
-### `dir1/README.md`
+## `dir1/README.md`
 
 ```markdown
 
