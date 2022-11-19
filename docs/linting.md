@@ -64,7 +64,7 @@ and so doesn't get in your way.
 It is recommended to NOT make this a required check for pull requests to avoid blocking pull
 requests if new misspellings are added to the misspell dictionary.
 
-See [build.yml](../.github/workflows/build.yml) and [misspell-check.yml](../.github/workflows/misspell-check.yml).
+See [build.yml](../.github/workflows/build.yml) and [misspell-check.yml](../.github/workflows/reusable-misspell-check.yml).
 
 If you need to exclude some files for any reason:
 
