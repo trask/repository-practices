@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install mardkdownlint
+      - name: Install markdownlint
         run: npm install -g markdownlint-cli
 
       - name: Run markdownlint
