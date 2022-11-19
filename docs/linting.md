@@ -47,13 +47,13 @@ If you run into sites sending back `403` to the link checker bot, you can add `4
 <https://github.com/igorshubovych/markdownlint-cli> is a style checker and lint tool for markdown
 files.
 
-See [reusable-markdown-lint.yml](../.github/workflow/reusable-markdown-lint.yml).
+See [reusable-markdown-lint.yml](../.github/workflows/reusable-markdown-lint.yml).
 
 ## Shell script linting
 
 <https://github.com/koalaman/shellcheck> gives warnings and suggestions for bash/sh shell scripts.
 
-See [reusable-shell-script-check.yml](../.github/workflow/reusable-shell-script-check.yml).
+See [reusable-shell-script-check.yml](../.github/workflows/reusable-shell-script-check.yml).
 
 ## Check for misspellings
 
@@ -64,7 +64,7 @@ and so doesn't get in your way.
 It is recommended to NOT make this a required check for pull requests to avoid blocking pull
 requests if new misspellings are added to the misspell dictionary.
 
-See [build.yml](../.github/workflow/build.yml) and [misspell-check.yml](../.github/workflow/misspell-check.yml).
+See [build.yml](../.github/workflows/build.yml) and [misspell-check.yml](../.github/workflows/misspell-check.yml).
 
 If you need to exclude some files for any reason:
 
