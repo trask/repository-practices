@@ -44,15 +44,14 @@ If you run into sites sending back `403` to the link checker bot, you can add `4
 
 ## Markdown linting
 
-Specification repo uses <https://github.com/DavidAnson/markdownlint>.
+<https://github.com/igorshubovych/markdownlint-cli> is a style checker and lint tool for markdown
+files.
 
-Go, JavaScript repos use <https://github.com/avto-dev/markdown-lint> github action.
-
-C++ uses markdownlint-cli (which is same that is used by avto-dev/markdown-lint github action).
-
-TODO
+See [reusable-markdown-lint.yml](../.github/workflow/reusable-markdown-lint.yml).
 
 ## Shell script linting
+
+<https://github.com/koalaman/shellcheck> gives warnings and suggestions for bash/sh shell scripts.
 
 See [reusable-shell-script-check.yml](../.github/workflow/reusable-shell-script-check.yml).
 
