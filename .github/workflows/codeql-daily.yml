@@ -30,4 +30,4 @@ jobs:
     needs:
       - analyze
     if: failure() && github.run_attempt == 1
-    uses: ./.github/workflows/reusable-open-issue-on-failure.yml
+    uses: trask/.github/.github/workflows/open-issue-on-workflow-failure.yml@main

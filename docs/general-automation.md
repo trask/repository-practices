@@ -91,7 +91,7 @@ origin repository when it pushes the branch.
         run: |
           echo $VERSION > autoinstrumentation/java/version.txt
 
-      - name: Use CLA approved github bot
+      - name: Use CLA approved github account
         run: |
           git config user.name opentelemetrybot
           git config user.email 107717825+opentelemetrybot@users.noreply.github.com
