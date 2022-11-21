@@ -15,9 +15,9 @@
 It is recommended to NOT make this a required check for pull requests to avoid blocking pull
 requests if external links break.
 
-There is a reusable workflow at
-<https://github.com/trask/.workflows/blob/main/.github/workflows/markdown-link-check.yml>
-which can be used, e.g.
+There is a reusable workflow
+[`markdown-link-check.yml`](https://github.com/trask/.workflows/blob/main/.github/workflows/markdown-link-check.yml)
+in the [.workflows](https://github.com/trask/.workflows) repository which can be used:
 
 ```
   markdown-link-check:
@@ -57,9 +57,9 @@ If you run into sites sending back `403` to the link checker bot, you can add `4
 <https://github.com/igorshubovych/markdownlint-cli> is a style checker and lint tool for markdown
 files.
 
-There is a reusable workflow at
-<https://github.com/trask/.workflows/blob/main/.github/workflows/markdown-style-check.yml>
-which can be used, e.g.
+There is a reusable workflow
+[`markdown-style-check.yml`](https://github.com/trask/.workflows/blob/main/.github/workflows/markdown-style-check.yml)
+in the [.workflows](https://github.com/trask/.workflows) repository which can be used:
 
 ```
   markdown-style-check:
@@ -73,13 +73,15 @@ which can be used, e.g.
 The file `.github/scripts/markdown-style-check-config.yml` is for configuring the markdown style
 check.
 
+TODO is there any common configuration?
+
 ## Check for shell script issues
 
 <https://github.com/koalaman/shellcheck> gives warnings and suggestions for bash/sh shell scripts.
 
-There is a reusable workflow at
-<https://github.com/trask/.workflows/blob/main/.github/workflows/markdown-style-check.yml>
-which can be used, e.g.
+There is a reusable workflow
+[`shell-script-check.yml`](https://github.com/trask/.workflows/blob/main/.github/workflows/shell-script-check.yml)
+in the [.workflows](https://github.com/trask/.workflows) repository which can be used:
 
 ```
   shell-script-check:
@@ -94,9 +96,9 @@ which can be used, e.g.
 so while it's not a comprehensive spell checker, it doesn't produce false positives,
 and so doesn't get in your way.
 
-There is a reusable workflow at
-<https://github.com/trask/.workflows/blob/main/.github/workflows/misspell-check.yml>
-which can be used, e.g.
+There is a reusable workflow
+[`misspell-check.yml`](https://github.com/trask/.workflows/blob/main/.github/workflows/misspell-check.yml)
+in the [.workflows](https://github.com/trask/.workflows) repository which can be used:
 
 ```
   misspell-check:
