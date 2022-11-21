@@ -94,9 +94,6 @@ which can be used, e.g.
 so while it's not a comprehensive spell checker, it doesn't produce false positives,
 and so doesn't get in your way.
 
-It is recommended to NOT make this a required check for pull requests to avoid blocking pull
-requests if new misspellings are added to the misspell dictionary.
-
 There is a reusable workflow at
 <https://github.com/trask/.workflows/blob/main/.github/workflows/misspell-check.yml>
 which can be used, e.g.
@@ -106,17 +103,6 @@ which can be used, e.g.
     # release branches are excluded to avoid unnecessary maintenance
     if: "!startsWith(github.ref_name, 'release/')"
     uses: trask/.workflows/.github/workflows/misspell-check.yml@main
-```
-
-If you need to exclude some files for any reason:
-
-```yaml
-      - name: Run misspell
-        run: |
-          find . -type f \
-                 -not -path './somedir/*' \
-               | xargs bin/misspell -error
-
 ```
 
 ## Running checks against changed files only
