@@ -7,7 +7,7 @@
 
 ## Run CodeQL daily
 
-See [codeql-daily.yml](../.github/workflows/codeql-daily.yml).
+See [`codeql-daily.yml`](../.github/workflows/codeql-daily.yml).
 
 ## Dependabot alerts
 

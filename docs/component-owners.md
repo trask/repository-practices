@@ -60,7 +60,5 @@ components:
 - [Person One](https://github.com/owner1), Company1
 - [Person Two](https://github.com/owner2), Company2
 
-Learn more about component owners in [component_owners.yml].
-
-[component_owners.yml]: ../.github/component_owners.yml
+Learn more about component owners in [`component_owners.yml`](../.github/component_owners.yml).
 ```

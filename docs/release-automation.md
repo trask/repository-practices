@@ -31,7 +31,7 @@ that generate the pull requests can still approve and merge them.
 
 ## RELEASING.md
 
-See an example [RELEASING.md](../RELEASING.md) that goes with the automation described below.
+See an example [`RELEASING.md`](../RELEASING.md) that goes with the automation described below.
 
 ## Change log management
 
@@ -51,7 +51,7 @@ so preparing the release branch involves
 * updating the version to the next `-SNAPSHOT` on `main`
   (e.g. updating the version from `1.2.0-SNAPSHOT` to `1.3.0-SNAPSHOT`)
 
-See [prepare-release-branch.yml](../.github/workflows/prepare-release-branch.yml).
+See [`prepare-release-branch.yml`](../.github/workflows/prepare-release-branch.yml).
 
 ## Prepare patch
 
@@ -60,18 +60,18 @@ The specifics depend a lot on the build tool and your version updating needs.
 For OpenTelemetry Java repositories, we have a workflow which generates a pull request
 against the release branch to update the version (e.g. from `1.2.0` to `1.2.1`).
 
-See [prepare-patch-release.yml](../.github/workflows/prepare-patch-release.yml).
+See [`prepare-patch-release.yml`](../.github/workflows/prepare-patch-release.yml).
 
 ## Backport pull requests to a release branch
 
 Having a workflow generate backport pull requests is nice because then you know that it was a clean
 cherry-pick and that it does not require re-review.
 
-See [backport.yml](../.github/workflows/backport.yml).
+See [`backport.yml`](../.github/workflows/backport.yml).
 
 ## Release
 
-See [release.yml](../.github/workflows/release.yml).
+See [`release.yml`](../.github/workflows/release.yml).
 
 ### Create the GitHub release
 
@@ -82,8 +82,8 @@ You will need to remove `--discussion-category announcements` if you add `--draf
 (you can still choose whether to select "Create a discussion for this release" before
 hitting the "Publish release" button).
 
-See [release.yml](../.github/workflows/release.yml).
+See [`release.yml`](../.github/workflows/release.yml).
 
 ### Update the change log with the release date
 
-See [release.yml](../.github/workflows/release.yml).
+See [`release.yml`](../.github/workflows/release.yml).

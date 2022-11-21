@@ -16,4 +16,4 @@ TODO
 
 ## Stale pull requests
 
-See [issue-management-stale-action.yml](../.github/workflows/issue-management-stale-action.yml).
+See [`issue-management-stale-action.yml`](../.github/workflows/issue-management-stale-action.yml).
