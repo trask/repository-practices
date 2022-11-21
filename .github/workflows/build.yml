@@ -31,28 +31,32 @@ jobs:
   markdown-link-check:
     # release branches are excluded to avoid unnecessary maintenance
     if: "!startsWith(github.ref_name, 'release/')"
-    uses: ./.github/workflows/reusable-markdown-link-check.yml
+    uses: trask/.workflows/.github/workflows/markdown-link-check.yml@main
+    with:
+      config-file: .github/config/markdown-link-check-config.json
 
-  markdown-lint:
+  markdown-style-check:
     # release branches are excluded to avoid unnecessary maintenance
     if: "!startsWith(github.ref_name, 'release/')"
-    uses: ./.github/workflows/reusable-markdown-lint.yml
+    uses: trask/.workflows/.github/workflows/markdown-style-check.yml@main
+    with:
+      config-file: .github/config/markdown-style-check-config.yml
 
   misspell-check:
     # release branches are excluded to avoid unnecessary maintenance
     if: "!startsWith(github.ref_name, 'release/')"
-    uses: ./.github/workflows/reusable-misspell-check.yml
+    uses: trask/.workflows/.github/workflows/misspell-check.yml@main
 
   shell-script-check:
     # release branches are excluded to avoid unnecessary maintenance
     if: "!startsWith(github.ref_name, 'release/')"
-    uses: ./.github/workflows/reusable-shell-script-check.yml
+    uses: trask/.workflows/.github/workflows/shell-script-check.yml@main
 
   required-status-check:
     # markdown-link-check is not required so pull requests are not blocked if external links break
     needs:
       - build
-      - markdown-lint
+      - markdown-style-check
       - misspell-check
       - shell-script-check
     if: always()
@@ -60,7 +64,7 @@ jobs:
     steps:
       - if: >
           needs.build.result != 'success' ||
-          needs.markdown-lint.result != 'success' ||
+          needs.markdown-style-check.result != 'success' ||
           needs.misspell-check.result != 'success' ||
           needs.shell-script-check.result != 'success'
         run: exit 1

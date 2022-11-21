@@ -100,60 +100,10 @@ jobs:
                             --discussion-category announcements \
                             v$VERSION
 
-          echo "::set-output name=version::$VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
   merge-change-log-to-main:
     runs-on: ubuntu-latest
     needs:
       - release
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Copy change log section from release branch
-        env:
-          VERSION: ${{ needs.release.outputs.version }}
-        run: |
-          sed -n "0,/^## Version $VERSION /d;/^## Version /q;p" CHANGELOG.md \
-            > /tmp/changelog-section.md
-
-      - uses: actions/checkout@v3
-        with:
-          ref: main
-
-      - name: Merge change log to main
-        env:
-          VERSION: ${{ needs.release.outputs.version }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          release_date=$(gh release view v$VERSION --json publishedAt --jq .publishedAt | sed 's/T.*//')
-          RELEASE_DATE=$release_date .github/scripts/merge-change-log-after-release.sh
-
-      - name: Use CLA approved github bot
-        run: .github/scripts/use-cla-approved-github-bot.sh
-
-      - name: Create pull request against main
-        env:
-          VERSION: ${{ needs.release.outputs.version }}
-          # not using secrets.GITHUB_TOKEN since pull requests from that token do not run workflows
-          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
-        run: |
-          if git diff --quiet; then
-            if [[ $VERSION =~ ^[0-9]+\.[0-9]+\.0 ]]; then
-              echo there are no updates to merge, not creating pull request
-              exit 0 # success
-            else
-              echo patch release notes did not get applied for some reason
-              exit 1 # failure
-            fi
-          fi
-
-          message="Merge change log updates from $GITHUB_REF_NAME"
-          body="Merge log updates from \`$GITHUB_REF_NAME\`."
-          branch="opentelemetrybot/merge-change-log-updates-from-${GITHUB_REF_NAME//\//-}"
-
-          git checkout -b $branch
-          git commit -a -m "$message"
-          git push --set-upstream origin $branch
-          gh pr create --title "$message" \
-                       --body "$body" \
-                       --base main
+    uses: trask/.github/.github/workflows/merge-change-log-to-main.yml@main
