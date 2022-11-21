@@ -31,26 +31,26 @@ jobs:
   markdown-link-check:
     # release branches are excluded to avoid unnecessary maintenance
     if: "!startsWith(github.ref_name, 'release/')"
-    uses: trask/.github/.github/workflows/markdown-link-check.yml@main
+    uses: trask/.workflows/.github/workflows/markdown-link-check.yml@main
     with:
       config-file: .github/config/markdown-link-check-config.json
 
   markdown-style-check:
     # release branches are excluded to avoid unnecessary maintenance
     if: "!startsWith(github.ref_name, 'release/')"
-    uses: trask/.github/.github/workflows/markdown-style-check.yml@main
+    uses: trask/.workflows/.github/workflows/markdown-style-check.yml@main
     with:
       config-file: .github/config/markdown-style-check-config.yml
 
   misspell-check:
     # release branches are excluded to avoid unnecessary maintenance
     if: "!startsWith(github.ref_name, 'release/')"
-    uses: trask/.github/.github/workflows/misspell-check.yml@main
+    uses: trask/.workflows/.github/workflows/misspell-check.yml@main
 
   shell-script-check:
     # release branches are excluded to avoid unnecessary maintenance
     if: "!startsWith(github.ref_name, 'release/')"
-    uses: trask/.github/.github/workflows/shell-script-check.yml@main
+    uses: trask/.workflows/.github/workflows/shell-script-check.yml@main
 
   required-status-check:
     # markdown-link-check is not required so pull requests are not blocked if external links break

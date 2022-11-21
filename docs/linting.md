@@ -3,8 +3,8 @@
 ## Table of Contents
 
 - [Check for broken markdown links](#check-for-broken-markdown-links)
-- [Markdown linting](#markdown-linting)
-- [Shell script linting](#shell-script-linting)
+- [Check for markdown style issues](#check-for-markdown-style-issues)
+- [Check for shell script issues](#check-for-shell-script-issues)
 - [Check for misspellings](#check-for-misspellings)
 - [Running checks against changed files only](#running-checks-against-changed-files-only)
 
@@ -15,12 +15,21 @@
 It is recommended to NOT make this a required check for pull requests to avoid blocking pull
 requests if external links break.
 
-See [reusable-markdown-link-check.yml][] and [markdown-link-check-with-retry.sh][].
+There is a reusable workflow at
+<https://github.com/trask/.workflows/blob/main/.github/workflows/markdown-link-check.yml>
+which can be used, e.g.
 
-[reusable-markdown-link-check.yml]: ../.github/workflows/reusable-markdown-link-check.yml
-[markdown-link-check-with-retry.sh]: ../.github/scripts/markdown-link-check-with-retry.sh
+```
+  markdown-link-check:
+    # release branches are excluded to avoid unnecessary maintenance
+    if: "!startsWith(github.ref_name, 'release/')"
+    uses: trask/.workflows/.github/workflows/markdown-link-check.yml@main
+    with:
+      config-file: .github/config/markdown-link-check-config.json
+```
 
-The file `.github/scripts/markdown-link-check-config.json` is for configuring the markdown link check:
+The file `.github/scripts/markdown-link-check-config.json` is for configuring the markdown link
+check:
 
 ```json
 {
@@ -30,7 +39,8 @@ The file `.github/scripts/markdown-link-check-config.json` is for configuring th
 
 `retryOn429` helps with GitHub throttling.
 
-If you run into sites sending back `403` to the link checker bot, you can add `403` to the `aliveStatusCodes`, e.g.
+If you run into sites sending back `403` to the link checker bot, you can add `403` to the
+`aliveStatusCodes`, e.g.
 
 ```json
 {
@@ -42,18 +52,41 @@ If you run into sites sending back `403` to the link checker bot, you can add `4
 }
 ```
 
-## Markdown linting
+## Check for markdown style issues
 
 <https://github.com/igorshubovych/markdownlint-cli> is a style checker and lint tool for markdown
 files.
 
-See [reusable-markdown-lint.yml](../.github/workflows/reusable-markdown-lint.yml).
+There is a reusable workflow at
+<https://github.com/trask/.workflows/blob/main/.github/workflows/markdown-style-check.yml>
+which can be used, e.g.
 
-## Shell script linting
+```
+  markdown-style-check:
+    # release branches are excluded to avoid unnecessary maintenance
+    if: "!startsWith(github.ref_name, 'release/')"
+    uses: trask/.workflows/.github/workflows/markdown-style-check.yml@main
+    with:
+      config-file: .github/config/markdown-style-check-config.yml
+```
+
+The file `.github/scripts/markdown-style-check-config.yml` is for configuring the markdown style
+check.
+
+## Check for shell script issues
 
 <https://github.com/koalaman/shellcheck> gives warnings and suggestions for bash/sh shell scripts.
 
-See [reusable-shell-script-check.yml](../.github/workflows/reusable-shell-script-check.yml).
+There is a reusable workflow at
+<https://github.com/trask/.workflows/blob/main/.github/workflows/markdown-style-check.yml>
+which can be used, e.g.
+
+```
+  shell-script-check:
+    # release branches are excluded to avoid unnecessary maintenance
+    if: "!startsWith(github.ref_name, 'release/')"
+    uses: trask/.workflows/.github/workflows/shell-script-check.yml@main
+```
 
 ## Check for misspellings
 
@@ -64,7 +97,16 @@ and so doesn't get in your way.
 It is recommended to NOT make this a required check for pull requests to avoid blocking pull
 requests if new misspellings are added to the misspell dictionary.
 
-See [build.yml](../.github/workflows/build.yml) and [misspell-check.yml](../.github/workflows/reusable-misspell-check.yml).
+There is a reusable workflow at
+<https://github.com/trask/.workflows/blob/main/.github/workflows/misspell-check.yml>
+which can be used, e.g.
+
+```
+  misspell-check:
+    # release branches are excluded to avoid unnecessary maintenance
+    if: "!startsWith(github.ref_name, 'release/')"
+    uses: trask/.workflows/.github/workflows/misspell-check.yml@main
+```
 
 If you need to exclude some files for any reason:
 
