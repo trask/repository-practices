@@ -1,4 +1,4 @@
-name: Issue management - remove feedback label
+name: Issue management - remove needs feedback label
 
 on:
   issue_comment:
