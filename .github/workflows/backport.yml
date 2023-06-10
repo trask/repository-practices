@@ -8,5 +8,4 @@ on:
 
 jobs:
   backport:
-    runs-on: ubuntu-latest
-    uses: trask/.github/.github/workflows/backport.yml@main
+    uses: trask/.workflows/.github/workflows/java/backport.yml@main
